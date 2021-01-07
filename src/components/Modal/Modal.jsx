@@ -34,3 +34,9 @@ export default function Modal(props) {
     modalRoot
   );
 }
+
+Modal.propTypes = {
+  alt: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+  src: PropTypes.string.isRequired,
+};

@@ -20,3 +20,9 @@ export default function ImageGalleryItem({ src, alt, largeImageURL }) {
     </li>
   );
 }
+
+ImageGalleryItem.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+};

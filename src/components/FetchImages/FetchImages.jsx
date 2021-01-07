@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import Spinner from '../Loader/Loader';
 import API from '../../services/Api';
 import Button from '../Button/Button';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import ImageErrorView from '../ImageErrorView/ImageErrorView';
 import PropTypes from 'prop-types';
+
 import '../css/styles.css';
 
 const Status = {
@@ -22,7 +24,6 @@ export default function ImageGalleryInfo({ query }) {
 
   useEffect(() => {
     if (!query) {
-      // Первый рендер, query это пустая строка, не делаем fetch
       return;
     }
     setStatus(Status.PENDING);
@@ -30,8 +31,8 @@ export default function ImageGalleryInfo({ query }) {
     API.fetchImages(query, page)
       .then((newImages) => {
         setImages((prevImages) => [...prevImages, ...newImages]);
-        setPage(page);
         setStatus(Status.RESOLVED);
+        scrollToBottom();
         if (newImages.length === 0) {
           throw new Error('Hmm...Nothing here. Try another search.');
         }
@@ -42,15 +43,35 @@ export default function ImageGalleryInfo({ query }) {
       });
   }, [query, page]);
 
-  if (page !== 1) {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
-  }
+  useEffect(() => {
+    const resetPage = (newQuery) => {
+      if (newQuery !== query) {
+        setPage(1);
+        setImages([]);
+      }
+    };
+    resetPage();
+  }, [query]);
+
+  const onLoadMore = () => {
+    setPage((page) => page + 1);
+  };
+
+  const scrollToBottom = (currentPage) => {
+    if (currentPage !== page) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   if (status === Status.IDLE) {
-    return <div style={{ textAlign: 'center' }}> Please enter search item</div>;
+    return (
+      <div style={{ textAlign: 'center' }}>
+        Please enter a search term to begin your search...
+      </div>
+    );
   }
 
   if (status === Status.PENDING) {
@@ -65,23 +86,12 @@ export default function ImageGalleryInfo({ query }) {
     return (
       <>
         <ImageGallery images={images} />
-        <Button onClick={() => setPage((prevPage) => prevPage + 1)} />
+        <Button onClick={onLoadMore} />
       </>
     );
   }
 }
 
-//   // обновляет поиск при вводенового значения в input + обновляет поиск с первой страницы
-//   if (prevQuery !== nextQuery) {
-//     this.setState({ page: 1, images: [] });
-//   }
-
-//   // scroll вниз
-//   if (prevState.page !== this.state.page) {
-//     window.scrollTo({
-//       top: document.documentElement.scrollHeight,
-//       behavior: 'smooth',
-//     });
-//   }
-//   }
-// }
+ImageGalleryInfo.propTypes = {
+  query: PropTypes.string.isRequired,
+};

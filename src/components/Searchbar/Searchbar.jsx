@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import '../css/styles.css';
 
 export default function SearchForm({ onSubmit }) {
@@ -13,9 +14,10 @@ export default function SearchForm({ onSubmit }) {
     event.preventDefault();
 
     if (query.trim() === '') {
-      toast.error('Please enter your search item.');
+      toast.error('Please enter a valid query string');
       return;
     }
+
     onSubmit(query);
     setQuery('');
   };
@@ -40,3 +42,7 @@ export default function SearchForm({ onSubmit }) {
     </header>
   );
 }
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
