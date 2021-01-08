@@ -27,20 +27,8 @@ export default function ImageGalleryInfo({ query }) {
       return;
     }
     setStatus(Status.PENDING);
-
-    API.fetchImages(query, page)
-      .then((newImages) => {
-        setImages((prevImages) => [...prevImages, ...newImages]);
-        setStatus(Status.RESOLVED);
-        scrollToBottom();
-        if (newImages.length === 0) {
-          throw new Error('Hmm...Nothing here. Try another search.');
-        }
-      })
-      .catch((error) => {
-        setError(error);
-        setStatus(Status.REJECTED);
-      });
+    fetchImgGallery();
+    setStatus(Status.RESOLVED);
   }, [query, page]);
 
   useEffect(() => {
@@ -53,17 +41,33 @@ export default function ImageGalleryInfo({ query }) {
     resetPage();
   }, [query]);
 
-  const onLoadMore = () => {
-    setPage((page) => page + 1);
+  const fetchImgGallery = () => {
+    API.fetchImages(query, page)
+      .then((newImages) => {
+        setImages((prevImages) => [...prevImages, ...newImages]);
+        scrollPageToBottom();
+        if (newImages.length === 0) {
+          throw new Error('Hmm...Nothing here. Try another search.');
+        }
+      })
+      .catch((error) => {
+        setError(error);
+        setStatus(Status.REJECTED);
+      });
   };
 
-  const scrollToBottom = (currentPage) => {
-    if (currentPage !== page) {
+  const scrollPageToBottom = () => {
+    if (page !== 1) {
       window.scrollTo({
-        top: document.documentElement.scrollHeight,
+        left: 0,
+        top: document.body.scrollHeight,
         behavior: 'smooth',
       });
     }
+  };
+
+  const onLoadMore = () => {
+    setPage((page) => page + 1);
   };
 
   if (status === Status.IDLE) {
@@ -86,7 +90,7 @@ export default function ImageGalleryInfo({ query }) {
     return (
       <>
         <ImageGallery images={images} />
-        <Button onClick={onLoadMore} />
+        {images.length !== 0 && <Button onClick={onLoadMore} />}
       </>
     );
   }
