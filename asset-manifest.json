@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-04-hooks-images/static/css/main.b22427e9.chunk.css",
-    "main.js": "/goit-react-hw-04-hooks-images/static/js/main.eabc0e0d.chunk.js",
-    "main.js.map": "/goit-react-hw-04-hooks-images/static/js/main.eabc0e0d.chunk.js.map",
+    "main.css": "/goit-react-hw-04-hooks-images/static/css/main.a00d2ba6.chunk.css",
+    "main.js": "/goit-react-hw-04-hooks-images/static/js/main.a6619c58.chunk.js",
+    "main.js.map": "/goit-react-hw-04-hooks-images/static/js/main.a6619c58.chunk.js.map",
     "runtime-main.js": "/goit-react-hw-04-hooks-images/static/js/runtime-main.769f1b62.js",
     "runtime-main.js.map": "/goit-react-hw-04-hooks-images/static/js/runtime-main.769f1b62.js.map",
     "static/css/2.bba54ca9.chunk.css": "/goit-react-hw-04-hooks-images/static/css/2.bba54ca9.chunk.css",
-    "static/js/2.5b6cb253.chunk.js": "/goit-react-hw-04-hooks-images/static/js/2.5b6cb253.chunk.js",
-    "static/js/2.5b6cb253.chunk.js.map": "/goit-react-hw-04-hooks-images/static/js/2.5b6cb253.chunk.js.map",
+    "static/js/2.0c534dff.chunk.js": "/goit-react-hw-04-hooks-images/static/js/2.0c534dff.chunk.js",
+    "static/js/2.0c534dff.chunk.js.map": "/goit-react-hw-04-hooks-images/static/js/2.0c534dff.chunk.js.map",
     "index.html": "/goit-react-hw-04-hooks-images/index.html",
     "static/css/2.bba54ca9.chunk.css.map": "/goit-react-hw-04-hooks-images/static/css/2.bba54ca9.chunk.css.map",
-    "static/css/main.b22427e9.chunk.css.map": "/goit-react-hw-04-hooks-images/static/css/main.b22427e9.chunk.css.map",
-    "static/js/2.5b6cb253.chunk.js.LICENSE.txt": "/goit-react-hw-04-hooks-images/static/js/2.5b6cb253.chunk.js.LICENSE.txt",
+    "static/css/main.a00d2ba6.chunk.css.map": "/goit-react-hw-04-hooks-images/static/css/main.a00d2ba6.chunk.css.map",
+    "static/js/2.0c534dff.chunk.js.LICENSE.txt": "/goit-react-hw-04-hooks-images/static/js/2.0c534dff.chunk.js.LICENSE.txt",
     "static/media/panda-dribble_4x.13bd5aac.webp": "/goit-react-hw-04-hooks-images/static/media/panda-dribble_4x.13bd5aac.webp"
   },
   "entrypoints": [
     "static/js/runtime-main.769f1b62.js",
     "static/css/2.bba54ca9.chunk.css",
-    "static/js/2.5b6cb253.chunk.js",
-    "static/css/main.b22427e9.chunk.css",
-    "static/js/main.eabc0e0d.chunk.js"
+    "static/js/2.0c534dff.chunk.js",
+    "static/css/main.a00d2ba6.chunk.css",
+    "static/js/main.a6619c58.chunk.js"
   ]
 }
