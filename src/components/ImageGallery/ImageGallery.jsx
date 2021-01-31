@@ -1,7 +1,8 @@
-import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import PropTypes from 'prop-types';
 
-import '../css/styles.css';
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
+
+import '../../css/styles.css';
 
 export default function ImageGallery({ images }) {
   return (

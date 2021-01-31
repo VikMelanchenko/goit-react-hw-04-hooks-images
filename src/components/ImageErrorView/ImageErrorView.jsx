@@ -1,5 +1,5 @@
-import errorImage from '../panda-dribble_4x.webp';
-import '../css/styles.css';
+import errorImage from '../../images/panda-dribble_4x.webp';
+import '../../css/styles.css';
 
 export default function ImageFallbackView({ message }) {
   return (

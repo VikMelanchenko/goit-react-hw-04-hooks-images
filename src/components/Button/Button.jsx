@@ -1,4 +1,4 @@
-import '../css/styles.css';
+import '../../css/styles.css';
 import PropTypes from 'prop-types';
 
 export default function Button({ onClick }) {

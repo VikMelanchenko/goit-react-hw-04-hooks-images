@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import Modal from '../Modal/Modal';
 import PropTypes from 'prop-types';
 
-import '../css/styles.css';
+import Modal from '../Modal/Modal';
+
+import { useState } from 'react';
+
+import '../../css/styles.css';
 
 export default function ImageGalleryItem({ src, alt, largeImageURL }) {
   const [showModal, setShowModal] = useState(null);

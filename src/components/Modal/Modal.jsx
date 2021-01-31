@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+
 import { createPortal } from 'react-dom';
 
-import '../css/styles.css';
+import { useEffect } from 'react';
+
+import '../../css/styles.css';
 
 const modalRoot = document.querySelector('#modal-root');
 

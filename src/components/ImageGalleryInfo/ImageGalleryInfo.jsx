@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
+
+import PropTypes from 'prop-types';
+
 import Spinner from '../Loader/Loader';
-import API from '../../services/Api';
 import Button from '../Button/Button';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import ImageErrorView from '../ImageErrorView/ImageErrorView';
-import PropTypes from 'prop-types';
 
-import '../css/styles.css';
+import API from '../../services/Api';
+
+import { useState, useEffect } from 'react';
+
+import '../../css/styles.css';
 
 const Status = {
   IDLE: 'idle',

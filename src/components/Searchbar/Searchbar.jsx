@@ -1,7 +1,10 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-import '../css/styles.css';
+
+import { toast } from 'react-toastify';
+
+import { useState } from 'react';
+
+import '../../css/styles.css';
 
 export default function SearchForm({ onSubmit }) {
   const [query, setQuery] = useState('');
